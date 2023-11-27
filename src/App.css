@@ -1,14 +1,18 @@
 .app{
     height: 100vh;
-
+    background: rgb(67, 69, 112);
+    background: radial-gradient(
+    circle,
+    rgba(67, 69, 112, 1) 3%,
+    rgba(35, 36, 57, 1) 60%
+    );
 }
 
 .section{
     width: 100%;
-    height: calc(100vh - 70px);
-    background-color: lightgoldenrodyellow;
+    height: calc(100vh - 80px);
     position: relative;
-    top: 70px;
+    top: 80px;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     scrollbar-width: none;
@@ -17,7 +21,7 @@
 
 .section *{
     width: 100vw;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 80px);
     scroll-snap-align: start;
 }
 

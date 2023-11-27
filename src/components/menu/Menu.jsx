@@ -1,15 +1,25 @@
 import React from 'react'
 import './Menu.css';
 
-function Menu() {
+function Menu({menuOpen, setMenuOpen}) {
   return (
-    <div className='menu'>
+    <div className={'menu '  + (menuOpen && 'active')}>
         <ul>
-            <li><a href='#intro'>Home</a></li>
-            <li><a href='#portfolio'>Portfolio</a></li>
-            <li><a href='#works'>Works</a></li>
-            <li><a href='#testimonials'>Testimonials</a></li>
-            <li><a href='#contact'>Contact</a></li>
+            <li onClick={() => setMenuOpen(!menuOpen)}>
+              <a href='#intro'>Home</a>
+            </li>
+            <li onClick={() => setMenuOpen(!menuOpen)}>
+              <a href='#portfolio'>Portfolio</a>
+            </li>
+            <li onClick={() => setMenuOpen(!menuOpen)}>
+              <a href='#works'>Works</a>
+            </li>
+            <li onClick={() => setMenuOpen(!menuOpen)}>
+              <a href='#testimonials'>Testimonials</a>
+            </li>
+            <li onClick={() => setMenuOpen(!menuOpen)}>
+              <a href='#contact'>Contact</a>
+            </li>
         </ul>
     </div>
   )
