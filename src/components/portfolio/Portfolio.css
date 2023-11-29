@@ -10,29 +10,16 @@
 
 .portfolio h1{
     font-size: 50px;
+    padding-bottom: 10px;
     /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 .portfolio ul{
     margin: 10px;
-    padding: 0;
+    padding: 5px;
     list-style: none;
     display: flex;
 }
-
-.portfolio li{
-    font-size: 16px;
-    margin-right: 50px;
-    padding: 7px;
-    cursor: pointer;
-    /* border-radius: 10px; */
-}
-
-.portfolio li.active{
-    background-color: #15023a;
-    color: #fff;
-}
-
 
 .port_container{
     width: 70%;
@@ -45,10 +32,10 @@
 }
 
 .port_item {
-    width: 220px;
-    height: 150px;
-    border-radius: 20px;
-    border: 1px solid gray;
+    width: 250px;
+    height: 170px;
+    border-radius: 10px;
+    border: 1px solid rgb(216, 216, 216);
     margin: 10px 20px;
     display: flex;
     align-items: center;
@@ -61,6 +48,7 @@
 
 .port_item h3{
     position: absolute;
+    text-align: center;
     font-size: 20px;
 }
 
@@ -72,9 +60,11 @@
 }
 .port_item:hover{
     background-color: #15023a;
+    /* opacity: .3; */
+
 }
 
 .port_item img:hover{
     opacity: .2;
-    z-index: 0;
+    /* z-index: 0; */
 }

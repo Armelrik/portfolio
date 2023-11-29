@@ -23,7 +23,7 @@
     grid-template-rows: repeat(3, 1fr);
     gap: 15px;
     /* align-items: center; */
-    padding-left: 10px;
+    /* padding-left: 10px; */
 }
 
 .color_item {

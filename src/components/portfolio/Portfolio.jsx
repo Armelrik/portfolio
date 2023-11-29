@@ -1,42 +1,74 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Portfolio.css';
+import {List, contentPortfolio, designPortfolio, featuredPortfolio, mlPortfolio, mobilePortfolio, webPortfolio} from './List';
+import PortfolioList from '../portfolioList/PortfolioList';
 
 function Portfolio() {
+
+  const [selected, setSelected] = useState('featured');
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    /* if(selected === "featured") {
+      setData(featuredPortfolio);
+    } else {
+      if(selected === "web"){
+        setData(webPortfolio);
+      } else {
+        if(selected === 'mobile'){
+          setData(mobilePortfolio);
+        } else {
+          if(selected === 'design'){
+            setData(designPortfolio);
+          } else {
+            if(selected === 'content'){
+              setData(contentPortfolio);
+            } else {
+              if(selected === 'ml'){
+                setData(mlPortfolio);
+              } else {
+                setData(featuredPortfolio)
+              }
+            }
+          }
+        }
+      }
+    } */
+
+    switch(selected) {
+      case 'featured': setData(featuredPortfolio); break;
+      case 'web': setData(webPortfolio); break;
+      case 'mobile': setData(mobilePortfolio); break;
+      case 'design': setData(designPortfolio); break;
+      case 'content': setData(contentPortfolio); break;
+      case 'ml': setData(mlPortfolio); break;
+      default: setData(featuredPortfolio);
+
+    }
+
+  }, [selected])
+  
   return (
     <div className='portfolio' id='portfolio'>
       <h1>Portfolio</h1>
       <ul>
-        <li className='active'>Featured</li>
-        <li>Web App</li>
-        <li>Mobile App</li>
-        <li>Design</li>
-        <li>Branding</li>
+        {List.map(item=>(
+          <PortfolioList 
+            title={item.title}
+            id={item.id} 
+            active={selected === item.id}
+            setSelected={setSelected}
+          />
+        ))}
       </ul>
       <div className="port_container">
-        <div className="port_item">
-          <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/b8a14493-3d9f-4b9b-b93a-56d0bc7243e9" alt="" />
-          <h3>Banking App</h3>
-        </div>
-        <div className="port_item">
-          <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/b8a14493-3d9f-4b9b-b93a-56d0bc7243e9" alt="" />
-          <h3>Banking App</h3>
-        </div>
-        <div className="port_item">
-          <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/b8a14493-3d9f-4b9b-b93a-56d0bc7243e9" alt="" />
-          <h3>Banking App</h3>
-        </div>
-        <div className="port_item">
-          <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/b8a14493-3d9f-4b9b-b93a-56d0bc7243e9" alt="" />
-          <h3>Banking App</h3>
-        </div>
-        <div className="port_item">
-          <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/b8a14493-3d9f-4b9b-b93a-56d0bc7243e9" alt="" />
-          <h3>Banking App</h3>
-        </div>
-        <div className="port_item">
-          <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/b8a14493-3d9f-4b9b-b93a-56d0bc7243e9" alt="" />
-          <h3>Banking App</h3>
-        </div>
+        {data.map( d => (
+          <div className="port_item">
+            <img src={d.img} alt={d.title} />
+            <h3>{d.title}</h3>
+          </div>
+        ))}
+        
       </div>
     </div>
   )
