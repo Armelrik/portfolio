@@ -19,10 +19,10 @@
     &::-webkit-scrollbar { display: none;}
 }
 
-.section *{
+/* .section >* {
     width: 100vw;
     height: calc(100vh - 80px);
     scroll-snap-align: start;
-}
+} */
 
 
