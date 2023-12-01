@@ -68,3 +68,9 @@
     opacity: .2;
     /* z-index: 0; */
 }
+
+@media (max-width: 850px) {
+    .port_container {
+        flex-direction: column;
+    }
+}

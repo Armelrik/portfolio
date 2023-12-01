@@ -18,6 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 30px;
 }
 
 .testi_card{
@@ -30,6 +31,18 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 20px;
+    transition: all .5s ease;
+}
+
+.testi_card.featured{
+    width: 300px;
+    height: 75%;
+}
+
+.testi_card:hover{
+    transform: scale(1.1);
+    
+    cursor: pointer;
 }
 
 .testi_top{
@@ -41,6 +54,11 @@
 
 .testi_top i{
     font-size: 30px;
+    /* rotate: 90deg; */
+}
+
+.testi_top i:nth-child(1){
+    /* font-size: 30px; */
     rotate: 90deg;
 }
 
@@ -73,4 +91,10 @@
 .testi_bottom h4{
     color: gold;
 
+}
+
+@media (max-width: 850px) {
+    .testi_container {
+        flex-direction: column;
+    }
 }

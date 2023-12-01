@@ -1,27 +1,32 @@
 import React from 'react'
 import './Testimonials.css';
+import { testimonials } from './TData';
 
 
 function Testimonials() {
+
+  const data = testimonials;
+
   return (
     <div className='testimonials' id='testimonials'>
       <h1>Testimonials</h1>
       <div className="testi_container">
-        <div className="testi_card">
+        {data.map((d) => (
+          <div className={d.featured ? "testi_card featured" : "testi_card"}>
           <div className="testi_top">
             <i className="fa-solid fa-arrow-turn-up"></i>
-            <img src="assets/img/6.jpg" alt="" />
-            <i className="fa-solid fa-youtube"></i>
+            <img src={d.img} alt={d.title} />
+            <i className={d.icon}></i>
           </div>
           <div className="testi_center">
-            Lorem ipsum dolor sit amet consectetur adipisicing 
-            elit. Commodi accusantium error minus nostrum aperiam a?
+            {d.desc}
           </div>
           <div className="testi_bottom">
-            <h3>Alex</h3>
-            <h4>CEO of Infine</h4>
+            <h3>{d.name}</h3>
+            <h4>{d.title}</h4>
           </div>
         </div>
+        ))}
       </div>
     </div>
   )
